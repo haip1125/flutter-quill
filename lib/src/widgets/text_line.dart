@@ -118,7 +118,10 @@ class TextLine extends StatelessWidget {
 
     textStyle = textStyle.merge(toMerge);
 
-    return TextSpan(children: children, style: textStyle);
+    return TextSpan(
+      children: children.isEmpty ? [const TextSpan(text: '')]: children, 
+      style: textStyle,
+    );
   }
 
   TextSpan _getTextSpanFromNode(DefaultStyles defaultStyles, Node node) {
